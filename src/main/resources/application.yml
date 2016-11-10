@@ -1,0 +1,39 @@
+spring:
+  thymeleaf:
+    cache: false
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    database: mysql
+    show-sql: true
+
+
+  messages:
+    fallback-to-system-locale: false
+  datasource:
+    continue-on-error: true
+    url: jdbc:mysql://localhost:3306/legwork?useUnicode=true&characterEncoding=UTF-8&connectTimeout=60000&socketTimeout=60000&autoReconnect=true&autoReconnectForPools=true&failOverReadOnly=false
+    username: zero
+    password: zero123
+    driver-class-name: com.mysql.jdbc.Driver
+    sql-script-encoding: UTF-8
+
+
+# basic security
+security:
+  oauth2:
+    client:
+      client-id: client
+      client-secret: secret
+      scope: read,write
+      auto-approve-scopes: '.*'
+      grant-type: password
+  basic:
+    enabled: true
+
+logging:
+  level:
+    org.springframework.security: DEBUG
